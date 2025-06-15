@@ -1,9 +1,5 @@
 # Hospital Management System (HMS)
 
-<p align="center">
-  <img src="public/images/login.jpg" alt="HMS Login Page" width="700">
-</p>
-
 A secure, full-stack Hospital Management System (HMS) built from the ground up with a modern Node.js backend and a dynamic EJS frontend. This project demonstrates best practices in web application architecture, including role-based access control, secure authentication, RESTful API design, and relational database management.
 
 ---
