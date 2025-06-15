@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Tools</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body class="doctor-tools-page">
+    <header class="page-header doctor-tools-header">
+        <h1>Doctor Tools</h1>
+        <p>Manage doctor details and weekly work schedules.</p>
+    </header>
+    <main class="feature-content">
+        <div class="container-fluid" style="max-width: 700px;">
+            <ul class="nav nav-tabs nav-fill mb-4" id="doctorTab" role="tablist">
+                <li class="nav-item" role="presentation"><button class="nav-link active" id="add-doctor-tab" data-bs-toggle="tab" data-bs-target="#add-doctor-pane" type="button">Add New Doctor</button></li>
+                <li class="nav-item" role="presentation"><button class="nav-link" id="update-doctor-tab" data-bs-toggle="tab" data-bs-target="#update-doctor-pane" type="button">Update Doctor Details</button></li>
+                <li class="nav-item" role="presentation"><button class="nav-link" id="schedule-doctor-tab" data-bs-toggle="tab" data-bs-target="#schedule-doctor-pane" type="button">Manage Schedule</button></li>
+            </ul>
+            <div class="tab-content" id="doctorTabContent">
+                <!-- Add New Doctor Pane -->
+                <div class="tab-pane fade show active" id="add-doctor-pane" role="tabpanel">
+                    <form action="/api/doctors" method="POST" class="feature-form ajax-form">
+                        <h4 class="text-center mb-3">Add New Doctor</h4><div class="message"></div>
+                        <label>Name:</label><input type="text" name="name" required>
+                        <label>Specialty:</label><input type="text" name="specialty" required>
+                        <label>Contact Details:</label><input type="text" name="contact_details" required>
+                        <label>Department:</label><input type="text" name="department" required>
+                        <button type="submit" class="submit-button">Add Doctor</button>
+                    </form>
+                </div>
+                <!-- Update Doctor Details Pane -->
+                <div class="tab-pane fade" id="update-doctor-pane" role="tabpanel">
+                     <form class="feature-form ajax-update-form" data-type="doctors">
+                        <h4 class="text-center mb-3">Update Existing Doctor Details</h4><div class="message"></div>
+                        <label>Doctor ID to Update:</label><input type="number" name="id" required>
+                        <label>Name:</label><input type="text" name="name" required>
+                        <label>Specialty:</label><input type="text" name="specialty" required>
+                        <label>Contact Details:</label><input type="text" name="contact_details" required>
+                        <label>Department:</label><input type="text" name="department" required>
+                        <button type="submit" class="submit-button">Update Details</button>
+                    </form>
+                </div>
+                <!-- Manage Schedule Pane -->
+                <div class="tab-pane fade" id="schedule-doctor-pane" role="tabpanel">
+                    <form id="schedule-form" class="feature-form">
+                        <h4 class="text-center mb-3">Manage Weekly Schedule</h4><div id="schedule-message" class="message"></div>
+                        <label for="schedule-doctor-id">Doctor ID:</label>
+                        <div class="input-group">
+                            <input type="number" id="schedule-doctor-id" class="form-control" placeholder="Enter Doctor ID to load/edit schedule">
+                            <button class="btn btn-secondary" type="button" id="load-schedule-btn">Load Schedule</button>
+                        </div>
+                        <hr><div id="schedule-inputs" class="d-none"><% const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]; %><% for (let i = 0; i < 7; i++) { %><div class="row align-items-center mb-2"><div class="col-3"><div class="form-check form-switch"><input class="form-check-input" type="checkbox" id="day-<%= i %>-active" data-day="<%= i %>"><label class="form-check-label" for="day-<%= i %>-active"><%= days[i] %></label></div></div><div class="col-9"><div class="input-group"><input type="time" id="day-<%= i %>-start" class="form-control" disabled><span class="input-group-text">to</span><input type="time" id="day-<%= i %>-end" class="form-control" disabled></div></div></div><% } %><button type="submit" class="submit-button mt-4">Save Schedule</button></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/form-handler.js"></script>
+    <script src="/js/update-handler.js"></script>    
+    <script src="/js/schedule-handler.js"></script>
+</body>
+</html>

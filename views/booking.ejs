@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking & Appointments</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body class="booking-page">
+    <header class="page-header booking-header">
+        <h1>Booking & Appointments</h1>
+        <p>Book an appointment with ease and convenience.</p>
+    </header>
+    <main class="feature-content">
+        <form action="/api/appointments" method="POST" class="feature-form ajax-form">
+            <div class="message"></div>
+            <label for="patientId">Patient:</label>
+            <select id="patientId" name="patient_id" required><option value="" disabled selected>Select a Patient</option><% patients.forEach(patient => { %><option value="<%= patient.patient_id %>"><%= patient.name %></option><% }); %></select>
+            <label for="doctorId">Doctor:</label>
+            <select id="doctorId" name="doctor_id" required><option value="" disabled selected>Select a Doctor</option><% doctors.forEach(doctor => { %><option value="<%= doctor.doctor_id %>"><%= doctor.name %> (<%= doctor.specialty %>)</option><% }); %></select>
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" required>
+            <label for="time">Time:</label>
+            <input type="time" id="time" name="time" required>
+            <label for="reason">Reason (Optional):</label>
+            <input type="text" id="reason" name="reason">
+            <button type="submit" class="submit-button">Book Appointment</button>
+        </form>
+    </main>
+    <script src="/js/form-handler.js"></script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard - HMS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand fw-bold" href="/user-dashboard">HMS (User)</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item"><a class="nav-link active" href="/user-dashboard">Home</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Services</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="/patient-form">Register as a New Patient</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="/booking-form">Book an Appointment</a></li>
+                                <li><a class="dropdown-item" href="/diagnostics-form">Schedule a Diagnostic Test</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <span class="navbar-text me-3 text-white-50">Welcome, <%= username %></span>
+                    <a class="btn btn-danger" href="/logout">Logout</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container py-5">
+            <div class="p-5 mb-4 rounded-3 dashboard-jumbotron">
+                <div class="container-fluid py-4">
+                    <h1 class="display-5 fw-bold">Welcome to your Patient Portal</h1>
+                    <p class="col-md-8 fs-4">Manage your health needs efficiently. Use our services to register as a patient, book appointments, and schedule tests.</p>
+                </div>
+            </div>
+        </div>
+
+        <section class="features pt-0">
+            <h2 class="text-center mb-4">Our Services</h2>
+            <div class="features-grid">
+                
+                <a href="/patient-form" class="feature-box"><h3><i class="bi bi-person-plus-fill me-2"></i>New Patient Registration</h3><p>Onboard yourself into our system.</p></a>
+                <a href="/booking-form" class="feature-box"><h3><i class="bi bi-calendar-plus-fill me-2"></i>Book Appointments</h3><p>Schedule your appointments with ease.</p></a>
+                <a href="/diagnostics-form" class="feature-box"><h3><i class="bi bi-clipboard2-pulse-fill me-2"></i>Schedule Diagnostics</h3><p>Book your diagnostic tests.</p></a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="mt-auto">
+        <div class="container">© 2025 Hospital Management System. All rights reserved. | <a href="/about">About This Project</a></div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

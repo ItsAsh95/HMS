@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Management</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body class="patient-management-page">
+    <header class="page-header patient-management-header">
+        <h1>Patient Management</h1>
+        <p>Register new patients or update existing records.</p>
+    </header>
+    <main class="feature-content">
+        <div class="container-fluid" style="max-width: 700px;">
+            <!-- Bootstrap Nav Tabs -->
+            <ul class="nav nav-tabs nav-fill mb-4" id="patientTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="add-patient-tab" data-bs-toggle="tab" data-bs-target="#add-patient-pane" type="button" role="tab">Register New Patient</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="update-patient-tab" data-bs-toggle="tab" data-bs-target="#update-patient-pane" type="button" role="tab">Update Existing Patient</button>
+                </li>
+            </ul>
+            <!-- Tab Panes -->
+            <div class="tab-content" id="patientTabContent">
+                <!-- Add New Patient Pane -->
+                <div class="tab-pane fade show active" id="add-patient-pane" role="tabpanel">
+                    <form action="/api/patients" method="POST" class="feature-form ajax-form">
+                        <h4 class="text-center mb-3">Register New Patient</h4>
+                        <p class="text-center text-muted">A unique ID will be generated automatically.</p>
+                        <div class="message"></div>
+                        <label>Full Name:</label><input type="text" name="name" required>
+                        <label>Date of Birth:</label><input type="date" name="dob" required>
+                        <label>Address:</label><input type="text" name="address" required>
+                        <label>Contact Details:</label><input type="text" name="contact_details" required>
+                        <label>Insurance Details (Optional):</label><input type="text" name="insurance_details">
+                        <button type="submit" class="submit-button">Register Patient</button>
+                    </form>
+                </div>
+                <!-- Update Existing Patient Pane -->
+                <div class="tab-pane fade" id="update-patient-pane" role="tabpanel">
+                    <form class="feature-form ajax-update-form" data-type="patients">
+                         <h4 class="text-center mb-3">Update Existing Patient Data</h4>
+                        <p class="text-center text-muted">Enter the ID of the patient you wish to update.</p>
+                        <div class="message"></div>
+                        <label>Patient ID:</label><input type="number" name="id" required>
+                        <label>Full Name:</label><input type="text" name="name" required>
+                        <label>Date of Birth:</label><input type="date" name="dob" required>
+                        <label>Address:</label><input type="text" name="address" required>
+                        <label>Contact Details:</label><input type="text" name="contact_details" required>
+                        <label>Insurance Details (Optional):</label><input type="text" name="insurance_details">
+                        <button type="submit" class="submit-button">Update Patient</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/form-handler.js"></script>
+    <script src="/js/update-handler.js"></script>
+</body>
+</html>

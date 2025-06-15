@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagnostic Scheduling</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body class="diagnostics-page">
+    <header class="page-header diagnostics-header">
+        <h1>Diagnostic Scheduling</h1>
+        <p>Book and manage diagnostic tests with ease.</p>
+    </header>
+    <main class="feature-content">
+        <form action="/api/diagnostics" method="POST" class="feature-form ajax-form">
+            <div class="message"></div>
+            <label for="patientId">Patient:</label>
+            <select id="patientId" name="patient_id" required><option value="" disabled selected>Select a Patient</option><% patients.forEach(patient => { %><option value="<%= patient.patient_id %>"><%= patient.name %> (ID: <%= patient.patient_id %>)</option><% }); %></select>
+            <label for="test">Test Type:</label>
+            <input type="text" id="test" name="test" placeholder="e.g., Blood Test, X-Ray" required>
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" required>
+            <label for="time">Time:</label>
+            <input type="time" id="time" name="time" required>
+            <button type="submit" class="submit-button">Schedule Test</button>
+        </form>
+    </main>
+    <script src="/js/form-handler.js"></script>
+</body>
+</html>

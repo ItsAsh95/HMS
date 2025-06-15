@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Billing & Payments</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body class="billing-page">
+    <header class="page-header billing-header">
+        <h1>Billing & Payments</h1>
+        <p>Efficient and secure billing and payment processing.</p>
+    </header>
+    <main class="feature-content">
+        <form action="/api/billing" method="POST" class="feature-form ajax-form">
+            <div class="message"></div>
+            <label for="patientId">Patient:</label>
+            <select id="patientId" name="patient_id" required><option value="" disabled selected>Select a Patient</option><% patients.forEach(patient => { %><option value="<%= patient.patient_id %>"><%= patient.name %> (ID: <%= patient.patient_id %>)</option><% }); %></select>
+            <label for="amount">Amount:</label>
+            <input type="number" id="amount" name="amount" step="0.01" required>
+            <label for="status">Status:</label>
+            <select id="status" name="status" required><option value="Paid">Paid</option><option value="Pending">Pending</option><option value="Unpaid">Unpaid</option></select>
+            <button type="submit" class="submit-button">Process Payment</button>
+        </form>
+    </main>
+    <script src="/js/form-handler.js"></script>
+</body>
+</html>

@@ -1,0 +1,181 @@
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+    flex-grow: 1; /* Ensures main content pushes the footer down */
+}
+
+.container-fluid {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+/* Navbar styles from original file */
+.navbar {
+  padding: 0 20px;
+  height: 60px;
+}
+
+.navbar-brand {
+  font-size: 1.25rem;
+  padding-left: 10px;
+}
+
+.nav-link {
+  margin-left: 20px;
+}
+
+/* Login page Body Style */
+.login-page-body {
+    background: url('/images/login.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+.login-card {
+    background: rgba(255, 255, 255, 0.97);
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    max-width: 450px;
+}
+
+/* Message Styling from original file (required for form feedback) */
+.message {
+    text-align: center;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    font-weight: 500;
+    border-radius: 5px;
+    border: 1px solid transparent;
+    display: none; /* Hidden by default */
+}
+.message.success {
+    color: #0f5132;
+    background-color: #d1e7dd;
+    border-color: #badbcc;
+    display: block;
+}
+.message.error {
+    color: #842029;
+    background-color: #f8d7da;
+    border-color: #f5c2c7;
+    display: block;
+}
+
+footer { background-color: #333; color: #f4f6f8; padding: 2em 1em; text-align: center; }
+footer a { color: #fff; }
+
+/* Hero Section from original file */
+.dashboard-jumbotron {
+    background-color: #ffffff;
+    border: 1px solid #dee2e6;
+}
+
+/* Features Section from original file */
+.features {
+    padding: 3em 1em;
+    background-color: #f4f6f8;
+    text-align: center;
+}
+.features h2 { font-size: 2em; margin-bottom: 1.5em; }
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5em;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.feature-box {
+    background-color: #fff;
+    padding: 2em;
+    border-radius: 8px;
+    text-align: center;
+    text-decoration: none;
+    color: #333;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.feature-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+.feature-box h3 { font-size: 1.5em; margin-bottom: 0.5em; }
+
+/* Footer from original file */
+footer {
+    background-color: #333;
+    color: #f4f6f8;
+    padding: 2em 1em;
+    text-align: center;
+}
+footer a { color: #fff; }
+
+/* General Styles for Feature Pages from original file */
+.page-header {
+    text-align: center;
+    padding: 2.5em 1em;
+    color: white;
+}
+.page-header h1 { font-weight: bold; }
+
+.feature-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2em 1em;
+}
+
+/* BUG FIX in original CSS: The generic 'form' selector is removed to prevent conflicts. */
+/* The class .feature-form is used instead. */
+.feature-form {
+    max-width: 600px;
+    width: 100%;
+    padding: 2.5em;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+.feature-form label { display: block; margin-top: 1em; margin-bottom: 0.5em; font-weight: 500; }
+.feature-form input, .feature-form select, .feature-form button {
+    width: 100%;
+    padding: 0.8em;
+    border-radius: 4px;
+    border: 1px solid #ced4da;
+}
+.feature-form button.submit-button {
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 1.5em;
+    transition: background-color 0.2s;
+}
+
+/* Unique Theme Colors for Each Page (Preserved from original file) */
+.booking-header { background-color: #4a90e2; }
+.booking-page .submit-button { background-color: #4a90e2; }
+.booking-page .submit-button:hover { background-color: #357abf; }
+
+.patient-management-header { background-color: #f5a623; }
+.patient-management-page .submit-button { background-color: #f5a623; }
+.patient-management-page .submit-button:hover { background-color: #d18f1b; }
+
+.doctor-tools-header { background-color: #50e3c2; }
+.doctor-tools-page .submit-button { background-color: #50e3c2; }
+.doctor-tools-page .submit-button:hover { background-color: #3bc0a6; }
+
+.billing-header { background-color: #b8e986; }
+.billing-page .submit-button { background-color: #b8e986; }
+.billing-page .submit-button:hover { background-color: #98d66f; }
+
+.diagnostics-header { background-color: #ff6f61; }
+.diagnostics-page .submit-button { background-color: #ff6f61; }
+.diagnostics-page .submit-button:hover { background-color: #e6534a; }
